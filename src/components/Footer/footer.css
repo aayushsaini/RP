@@ -1,0 +1,9 @@
+.footer {
+  display: block;
+  min-height: 20vh;
+  min-width: 100vw;
+  background-color: black;
+  position: relative;
+  color: #fff;
+  padding: 10px;
+}
