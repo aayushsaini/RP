@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import RestaurantsCard from "../RestaurantsCard/RestaurantsCard";
+import RestaurantsCard from "../../components/RestaurantsCard/RestaurantsCard";
 import { apiLink } from "../../global.constants";
 import styles from "./home.module.css";
+import Skeleton from "../../components/Common/Skeleton";
 
 const Home = () => {
   const [allRestaurants, setAllRestaurants] = useState([]);
@@ -59,7 +60,9 @@ const Home = () => {
           })}
         </div>
       ) : (
-        <h1>Loading...</h1>
+        <div className={styles.restaurantsList}>
+          <Skeleton count={8} />
+        </div>
       )}
     </>
   );
