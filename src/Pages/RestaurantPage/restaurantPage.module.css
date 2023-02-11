@@ -1,0 +1,87 @@
+.container {
+	width: 80vw;
+	margin-left: 10vw;
+}
+
+.banner {
+	width: 100vw;
+	background-color: black;
+	height: 280px;
+	/* padding: 6vh 10vw 6vh 10vw; */
+	padding-left: 10vw;
+	padding-right: 10vw;
+	display: flex;
+	align-items: center;
+}
+
+.banner > .restaurantImage {
+	height: 200px;
+}
+
+.banner .restaurantDetails {
+	/* border: 1px solid rgb(54, 54, 54); */
+	margin-left: 2em;
+	height: 200px;
+	width: 60vw;
+}
+
+.banner .restaurantDetails .restaurantName {
+	color: white;
+	text-transform: capitalize;
+	font-weight: 600;
+	font-size: 24px;
+	margin: 0;
+	padding-top: 10px;
+	padding-bottom: 20px;
+}
+
+.banner .restaurantDetails > .restaurantFoodType {
+	color: rgb(189, 189, 189);
+	font-size: 16px;
+	margin: 0px 0px 5px 0px;
+}
+
+.banner .restaurantDetails > .restaurantLocality {
+	color: rgb(189, 189, 189);
+	font-size: 16px;
+	margin: 0;
+}
+
+.banner .restaurantDetails .restaurantDetailsExtra {
+	display: flex;
+	flex-direction: row;
+	/* justify-items: center; */
+	align-items: flex-end;
+}
+
+.banner
+	.restaurantDetails
+	> .restaurantDetailsExtra
+	> .restaurantExtraContainer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: fit-content;
+}
+
+.banner
+	.restaurantDetails
+	> .restaurantDetailsExtra
+	> .restaurantExtraContainer
+	> .restaurantExtraTop {
+	color: white;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	/* justify-content: center; */
+	font-weight: 700;
+	margin-top: 30px;
+}
+
+.banner
+	.restaurantDetails
+	> .restaurantDetailsExtra
+	> .restaurantExtraContainer
+	> .restaurantExtraBottom {
+	color: rgb(214, 214, 214);
+}

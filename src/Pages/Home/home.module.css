@@ -1,62 +1,62 @@
 .mainBanner {
-  height: 280px;
-  background-color: black;
-  display: flex;
-  flex-direction: column;
+	height: 280px;
+	background-color: black;
+	display: flex;
+	flex-direction: column;
 }
 
 .bannerTitle {
-  color: rgb(255, 255, 255);
-  font-family: 'Tahoma';
-  font-weight: 900;
-  margin-top: 60px;
+	color: rgb(255, 255, 255);
+	font-family: 'Tahoma';
+	font-weight: 900;
+	margin-top: 60px;
 }
 
 .bannerTitle > span {
-  color: rgb(2, 203, 96)
+	color: rgb(2, 203, 96);
 }
 
 .searchBar {
-  display: flex;
-  height: 100px;
-  width: 100%;
-  align-items: center;
-  justify-content: center; /* background-color: rgb(58, 58, 58); */
+	display: flex;
+	height: 100px;
+	width: 100%;
+	align-items: center;
+	justify-content: center; /* background-color: rgb(58, 58, 58); */
 }
 
 .searchBar > input {
-  min-width: 35vw;
-  max-width: 35vw;
-  min-height: 35px;
-  padding-left: 15px;
-  font-size: 16px;
-  color: rgb(108, 115, 110);
-  margin-right: 10px;
+	min-width: 35vw;
+	max-width: 35vw;
+	min-height: 35px;
+	padding-left: 15px;
+	font-size: 16px;
+	color: rgb(108, 115, 110);
+	margin-right: 10px;
 }
 
 .searchBar > button {
-  background-color: rgb(0, 173, 81);
-  color: #fff;
-  border: 0px;
-  /* min-height: 35px; */
-  font-weight: 600;
-  cursor: pointer;
-  padding: 12px 25px;
-  transition: all 0.3s;
+	background-color: rgb(0, 173, 81);
+	color: #fff;
+	border: 0px;
+	/* min-height: 35px; */
+	font-weight: 600;
+	cursor: pointer;
+	padding: 12px 25px;
+	transition: all 0.3s;
 }
 
-.searchBar  > button:hover {
-  background-color: rgb(17, 153, 80);
-  transition: all 0.3s;
+.searchBar > button:hover {
+	background-color: rgb(17, 153, 80);
+	transition: all 0.3s;
 }
 
 .restaurantsList {
-  width: 80vw;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  margin-left: 10vw;
-  margin-top: 2vh;
-  
-  /* background-color: red; */
+	width: 80vw;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	margin-left: 10vw;
+	margin-top: 2vh;
+
+	/* background-color: red; */
 }

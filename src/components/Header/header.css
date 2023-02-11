@@ -1,71 +1,80 @@
 .header {
-  display: flex;
-  width: 90vw;
-  height: 70px;
-  justify-content: space-between;
-  align-items: center;
-  padding-left: 5vw;
-  padding-right: 5vw;
-  border-bottom: 1px solid rgb(223, 242, 248);
+	display: flex;
+	width: 90vw;
+	height: 70px;
+	justify-content: space-between;
+	align-items: center;
+	padding-left: 5vw;
+	padding-right: 5vw;
+	border-bottom: 1px solid rgb(223, 242, 248);
 }
 
 .logo {
-  width: 160px;
-  object-fit: contain;
-  float: left;
-  padding-top: 1vh;
+	width: 160px;
+	object-fit: contain;
+	float: left;
+	padding-top: 1vh;
 }
 
 .searchPanel {
-  display: flex;
-  position: absolute;
-  left: 0;
-  right: 0;
-  margin-right: auto;
-  margin-left: auto;
-  width: 35vw;
+	display: flex;
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin-right: auto;
+	margin-left: auto;
+	width: 35vw;
 }
 
 .searchBar {
-  min-width: 30vw;
-  max-width: 30vw;
-  min-height: 35px;
-  border-radius: 5px;
-  border: 1.5px solid rgb(125, 171, 146);
-  padding-left: 15px;
-  transition: all 0.3s;
-  font-size: 16px;
-  color: rgb(108, 115, 110);
-  margin-right: 10px;
+	min-width: 30vw;
+	max-width: 30vw;
+	min-height: 35px;
+	border-radius: 5px;
+	border: 1.5px solid rgb(125, 171, 146);
+	padding-left: 15px;
+	transition: all 0.3s;
+	font-size: 16px;
+	color: rgb(108, 115, 110);
+	margin-right: 10px;
 }
 
 .searchPanel > button {
-  background-color: rgb(15, 113, 61);
-  color: #fff;
-  border: 0px;
-  cursor: pointer;
-  padding: 0px 10px;
-  transition: all 0.3s;
+	background-color: rgb(15, 113, 61);
+	color: #fff;
+	border: 0px;
+	cursor: pointer;
+	padding: 0px 10px;
+	transition: all 0.3s;
 }
 
 .searchPanel > button:hover {
-  background-color: rgb(17, 153, 80);
-  transition: all 0.3s;
+	background-color: rgb(17, 153, 80);
+	transition: all 0.3s;
 }
 
 input:focus,
-select:focus{
-  outline: 2px solid rgb(68, 189, 125);
-  outline: none;
+select:focus {
+	outline: 2px solid rgb(68, 189, 125);
+	outline: none;
 }
 
 ul.navbarMenu {
-  display: flex;
-  float: right;
-  list-style: none;
+	display: flex;
+	float: right;
+	list-style: none;
 }
 
-ul.navbarMenu > li {
-  padding-left: 2em;
-  font-weight: 500;
+ul.navbarMenu > .navLink {
+	color: rgb(0, 0, 0);
+	padding-left: 2em;
+	font-weight: 500;
+	text-decoration: none;
+	transition: all 0.2s;
+}
+
+ul.navbarMenu > .navLink:hover {
+	color: rgb(68, 189, 125);
+	font-weight: 600;
+	transition: all 0.2s;
 }
