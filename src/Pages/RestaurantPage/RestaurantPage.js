@@ -1,33 +1,25 @@
-import React, { useState, useEffect } from 'react';
-import { AiFillStar } from 'react-icons/ai';
+import React, { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
-import { ImageCDN } from '../../global.constants';
+import RestaurantItemList from '../../components/RestaurantItemList/RestaurantItemList';
+import RestaurantPageHeader from '../../components/RestaurantPageHeader/RestaurantPageHeader';
 
-import styles from './restaurantPage.module.css';
-
-const VerticalHR = () => {
-	return (
-		<div
-			style={{
-				borderLeft: '1px solid grey',
-				height: '40px',
-				display: 'block',
-				marginLeft: '20px',
-				marginRight: '22px',
-				// marginBottom: '5px',
-			}}
-		></div>
-	);
-};
+import './restaurantPage.css';
 
 const RestaurantPage = () => {
 	const { id } = useParams();
 
 	const [details, setDetails] = useState({});
+	const [menuItems, setMenuItems] = useState(null);
+	const selectedCategory = useRef([]);
+	const selectedCategoryList = useRef([]);
 
 	useEffect(() => {
 		getRestaurantInfo();
 	}, []);
+
+	useEffect(() => {
+		if (Object.keys(details).length > 0) getRecommended();
+	}, [details]);
 
 	async function getRestaurantInfo() {
 		const result = await fetch(
@@ -35,79 +27,65 @@ const RestaurantPage = () => {
 		);
 		const data = await result.json();
 		setDetails(data.data);
-		console.log(data.data);
 	}
+
+	const getRecommended = () => {
+		//highlight the recommended tab
+		Object.entries(
+			selectedCategoryList?.current?.children
+		)[0][1].classList.add('active');
+
+		const recommendedItemIds = details.menu.widgets[0].entities.map(
+			(item) => item.id
+		);
+		const recommendedList = Object.entries(details.menu.items).filter(
+			(item) => recommendedItemIds.includes(item[1].id)
+		);
+		setMenuItems(recommendedList);
+	};
+
+	const makeMenuList = (e, index) => {
+		// Remove the active class if any
+		Object.entries(selectedCategoryList?.current?.children).map((node) =>
+			node[1].classList.remove('active')
+		);
+
+		// Add the active class to our selected category
+		selectedCategory.current[index].classList.add('active');
+
+		const category = selectedCategory.current[index].innerText;
+		if (category === 'Recommended') getRecommended();
+		else {
+			const newMenu = Object.entries(details.menu.items).filter(
+				(item) => item[1].category === category
+			);
+			setMenuItems(newMenu);
+		}
+	};
 
 	return (
 		<div>
-			<div className={styles.banner}>
-				<img
-					src={ImageCDN + details?.cloudinaryImageId}
-					className={styles.restaurantImage}
-					alt="restaurant image"
-				/>
-				<div className={styles.restaurantDetails}>
-					<h1 className={styles.restaurantName}>{details.name}</h1>
-					<p className={styles.restaurantFoodType}>
-						{Object.keys(details).length !== 0
-							? details.cuisines?.join(', ')
-							: ' '}
-					</p>
-					<p className={styles.restaurantLocality}>
-						{Object.keys(details).length !== 0
-							? details.locality + ', ' + details.area
-							: ' '}
-					</p>
-					<div className={styles.restaurantDetailsExtra}>
-						<div className={styles.restaurantExtraContainer}>
-							<div className={styles.restaurantExtraTop}>
-								<span>
-									<AiFillStar
-										size="14px"
-										style={{
-											marginRight: '2px',
-											color: 'gold',
-										}}
-									/>
-									{Object.keys(details).length !== 0
-										? details.avgRatingString
-										: ''}
-								</span>
-								<br />
-							</div>
-							<span className={styles.restaurantExtraBottom}>
-								{Object.keys(details).length !== 0
-									? details.totalRatingsString
-									: ''}
-							</span>
-						</div>
-						<VerticalHR />
-						<div
-							className={styles.restaurantExtraContainer}
-							style={{ color: 'white' }}
+			<RestaurantPageHeader data={details} />
+			<div className="container">
+				<ul ref={selectedCategoryList}>
+					{details?.menu?.widgets.map((category, index) => (
+						<li
+							className="category"
+							onClick={(e) => makeMenuList(e, index)}
+							ref={(e) => (selectedCategory.current[index] = e)}
 						>
-							<span style={{ fontWeight: 700 }}>-- mins</span>
-							<span style={{ color: 'rgb(214, 214, 214)' }}>
-								Delivery time
-							</span>
-						</div>
-						<VerticalHR />
-						<div className={styles.restaurantExtraContainer}>
-							<div className={styles.restaurantExtraTop}>
-								<span>
-									{Object.keys(details).length !== 0
-										? '₹ ' + details.costForTwo / 100
-										: ''}
-								</span>
-							</div>
-							<div className={styles.restaurantExtraBottom}>
-								Cost for two
-							</div>
-						</div>
-					</div>
-				</div>
+							{category.name}
+						</li>
+					))}
+				</ul>
+				<ul>
+					{menuItems !== null
+						? menuItems.map((item) => (
+								<RestaurantItemList data={item[1]} />
+						  ))
+						: 'please select'}
+				</ul>
 			</div>
-			<div className={styles.container}>Restaurant {id}</div>
 		</div>
 	);
 };

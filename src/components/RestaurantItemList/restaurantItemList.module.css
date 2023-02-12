@@ -1,0 +1,62 @@
+.item {
+	display: flex;
+	border-bottom: 1px solid rgb(223, 223, 223);
+	margin-bottom: 5px;
+	padding-bottom: 5px;
+	flex-direction: row;
+	width: 45vw; /* Will change later */
+	align-items: center;
+	justify-content: space-between;
+}
+
+.addButton {
+	border-radius: 4px;
+}
+
+.addButton:hover {
+	cursor: pointer;
+}
+
+.addButton-disabled:hover {
+	cursor: not-allowed;
+}
+
+.item > .left {
+	display: flex;
+	flex-direction: column;
+	max-width: 34vw;
+}
+
+.item > .left .name {
+	font-size: 18px;
+	font-weight: 700;
+	color: rgb(57, 57, 57);
+}
+
+.item > .left .price {
+	padding: 0;
+	margin: 0px 0px 15px 0px;
+	font-size: 14px;
+}
+
+.item > .left .description {
+	color: grey;
+}
+
+.item > .right {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: relative;
+	margin: 5px 0px 20px 0px;
+}
+
+.item > .right > .image {
+	width: 140px;
+	border-radius: 10px;
+}
+
+.item > .right > .addItem {
+	position: absolute;
+	bottom: -20px;
+}
