@@ -52,9 +52,9 @@ const RestaurantPage = () => {
           ))}
         </ul>
         <ul>
-          {menuItems !== null
-            ? menuItems.map((item) => <RestaurantItemList data={item[1]} />)
-            : "please select"}
+          {menuItems?(Object.keys(menuItems).length === 0 ?
+            <h2>Nothing here for now, check back later 😋</h2> :
+            menuItems.map((item) => <RestaurantItemList data={item[1]} />)):""}
         </ul>
       </div>
     </div>
