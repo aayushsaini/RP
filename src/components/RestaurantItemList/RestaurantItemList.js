@@ -6,7 +6,6 @@ import Skeleton from '../Common/Skeleton';
 import styles from './restaurantItemList.module.css';
 
 const RestaurantItemList = ({ data }) => {
-	console.log(data);
 	return (
 		<div className={styles.item}>
 			<div className={styles.left}>

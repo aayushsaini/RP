@@ -4,7 +4,6 @@ import { ImageCDN } from '../../global.constants';
 import styles from './restaurantsCard.module.css';
 
 const RestaurantsCard = (props) => {
-	console.log('>>', props);
 	return (
 		<div className={styles.restaurantCard}>
 			<img src={ImageCDN + props.cloudinaryImageId} />
