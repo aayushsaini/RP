@@ -44,11 +44,11 @@ export const getRecommended = (restaurantData, selectedCategoryList) => {
     "active"
   );
 
-  const recommendedItemIds = restaurantData?.menu?.widgets[0].entities.map(
+  const recommendedItemIds = restaurantData?.menu?.widgets[0].entities?.map(
     (item) => item.id
   );
   const recommendedList = Object.entries(restaurantData?.menu?.items).filter(
-    (item) => recommendedItemIds.includes(item[1].id)
+    (item) => recommendedItemIds?.includes(item[1].id)
   );
   // setMenuItems(recommendedList);
   return recommendedList;
